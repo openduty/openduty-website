@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/openduty/openduty-website/controllers"
 	"github.com/openduty/openduty-website/models"
-	"net/http"
 )
 
 func main() {
@@ -15,6 +14,7 @@ func main() {
 
 	// Routes
 	r.GET("/websites", controllers.FindWebsites)
+	r.POST("/websites", controllers.CreateWebsites)
 
 	// Run the server
 	r.Run()
