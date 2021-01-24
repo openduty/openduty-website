@@ -8,7 +8,7 @@ import (
 )
 
 type CreateWebsiteInput struct {
-	Url  string `json:"url" binding:"required"`
+	Url  string `json:"url"`
 }
 
 // GET /websites
