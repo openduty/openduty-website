@@ -7,6 +7,10 @@ import (
 	"github.com/openduty/openduty-website/models"
 )
 
+type CreateWebsitekInput struct {
+	Url  string `json:"url" binding:"required"`
+}
+
 // GET /websites
 // Find all websites
 func FindWebsites(c *gin.Context) {
@@ -27,7 +31,7 @@ func CreateWebsite(c *gin.Context) {
 	}
 
 	// Create book
-	website := models.Website{Url: input.Url, Owner: input.Owner}
+	website := models.Website{Url: input.Url}
 	models.DB.Create(&website)
 
 	c.JSON(http.StatusOK, gin.H{"data": website})
