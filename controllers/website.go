@@ -8,13 +8,13 @@ import (
 )
 
 type CreateWebsiteInput struct {
-	Title  string `json:"url" binding:"required"`
-	Author string `json:"owner" binding:"required"`
+	Url  string `json:"url" binding:"required"`
+	Owner string `json:"owner" binding:"required"`
 }
 
 type UpdateWebsiteInput struct {
-	Title  string `json:"url"`
-	Author string `json:"owner"`
+	Url  string `json:"url"`
+	Owner string `json:"owner"`
 }
 
 // GET /websites
@@ -50,7 +50,7 @@ func CreateWebsite(c *gin.Context) {
 	}
 
 	// Create website
-	website := models.Website{Url: input.Url, Owner: input.Owner}
+	website := models.Website{Url: input.url, Owner: input.owner}
 	models.DB.Create(&website)
 
 	c.JSON(http.StatusOK, gin.H{"data": website})
