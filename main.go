@@ -15,8 +15,6 @@ func main() {
 
 	// Routes
 	r.GET("/websites", controllers.FindWebsites)
-	r.GET("/website/:id", controllers.FindWebsite)
-	r.POST("/websites", controllers.CreateWebsite)
 
 	// Run the server
 	r.Run()
