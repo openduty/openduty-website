@@ -22,7 +22,7 @@ func FindWebsites(c *gin.Context) {
 
 // POST /websites
 // Create new website
-func CreateWebsite(c *gin.Context) {
+func CreateWebsites(c *gin.Context) {
 	// Validate input
 	var input CreateWebsiteInput
 	if err := c.ShouldBindJSON(&input); err != nil {
