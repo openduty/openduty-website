@@ -7,7 +7,7 @@ import (
 	"github.com/openduty/openduty-website/models"
 )
 
-type CreateWebsitekInput struct {
+type CreateWebsiteInput struct {
 	Url  string `json:"url" binding:"required"`
 }
 
