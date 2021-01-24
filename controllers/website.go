@@ -50,45 +50,8 @@ func CreateWebsite(c *gin.Context) {
 	}
 
 	// Create website
-	website := models.Website{URL: input.Url, Owner: input.Owner}
+	website := models.Website{Url: input.Url, Owner: input.Owner}
 	models.DB.Create(&website)
 
 	c.JSON(http.StatusOK, gin.H{"data": website})
-}
-
-// PATCH /website/:id
-// Update a website
-func UpdateWebsite(c *gin.Context) {
-	// Get model if exist
-	var website models.website
-	if err := models.DB.Where("id = ?", c.Param("id")).First(&website).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-		return
-	}
-
-	// Validate input
-	var input UpdatewebsiteInput
-	if err := c.ShouldBindJSON(&input); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	models.DB.Model(&website).Updates(input)
-
-	c.JSON(http.StatusOK, gin.H{"data": website})
-}
-
-// DELETE /websites/:id
-// Delete a website
-func DeleteWebsite(c *gin.Context) {
-	// Get model if exist
-	var website models.website
-	if err := models.DB.Where("id = ?", c.Param("id")).First(&website).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
-		return
-	}
-
-	models.DB.Delete(&website)
-
-	c.JSON(http.StatusOK, gin.H{"data": true})
 }
