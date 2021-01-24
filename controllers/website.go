@@ -50,7 +50,7 @@ func CreateWebsite(c *gin.Context) {
 	}
 
 	// Create website
-	website := models.Website{Url: input.url, Owner: input.owner}
+	website := models.Website{Url: input.Url, Owner: input.Owner}
 	models.DB.Create(&website)
 
 	c.JSON(http.StatusOK, gin.H{"data": website})
