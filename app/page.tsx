@@ -1,3 +1,6 @@
+const GITHUB = "https://github.com/openduty/openduty";
+const DOCS = `${GITHUB}#readme`;
+
 const features = [
   ["Uptime checks", "HTTP, TCP, ping, DNS and keyword checks as often as every 30 seconds."],
   ["Status pages", "Beautiful public pages on your own domain, updated automatically."],
@@ -23,7 +26,7 @@ const compare = [
 ];
 
 const plans = [
-  { name: "Self-hosted", price: "Free", note: "Forever, on your hardware", items: ["Unlimited monitors", "All integrations", "Community support"], cta: "View on GitHub", href: "#self-host" },
+  { name: "Self-hosted", price: "Free", note: "Forever, on your hardware", items: ["Unlimited monitors", "All integrations", "Community support"], cta: "View on GitHub", href: GITHUB },
   { name: "Cloud", price: "€10", note: "per month", items: ["We host and maintain it", "Multi-region checks", "Custom-domain status pages", "Email support"], cta: "Get started", href: "#", featured: true },
   { name: "Enterprise", price: "Custom", note: "Dedicated instance, built for you", items: ["Private instance set up by us", "SSO & audit log", "SLA and priority support"], cta: "Request a quote", href: "#" },
 ];
@@ -67,6 +70,8 @@ export default function Home() {
             <a href="#features" className="hover:text-ink">Features</a>
             <a href="#self-host" className="hover:text-ink">Self-host</a>
             <a href="#pricing" className="hover:text-ink">Pricing</a>
+            <a href={DOCS} className="hover:text-ink">Docs</a>
+            <a href={GITHUB} className="hover:text-ink">GitHub</a>
           </div>
           <Button href="#pricing" primary>Get started</Button>
         </nav>
@@ -135,8 +140,8 @@ export default function Home() {
               and you can migrate to our cloud — or back — whenever you like.
             </p>
             <div className="mt-8 flex gap-3">
-              <Button href="#" primary>Read the docs</Button>
-              <Button href="#">Star on GitHub</Button>
+              <Button href={DOCS} primary>Read the docs</Button>
+              <Button href={GITHUB}>Star on GitHub</Button>
             </div>
           </div>
           <pre className="overflow-x-auto rounded-2xl bg-ink p-6 font-mono text-sm leading-relaxed text-sand">
@@ -209,6 +214,10 @@ export default function Home() {
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted sm:flex-row">
           <Logo />
+          <span className="flex gap-6">
+            <a href={DOCS} className="hover:text-ink">Docs</a>
+            <a href={GITHUB} className="hover:text-ink">GitHub</a>
+          </span>
           <span>© OpenDuty. Released under the MIT license.</span>
         </div>
       </footer>
